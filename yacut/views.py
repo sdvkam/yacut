@@ -1,6 +1,4 @@
-from http import HTTPStatus
-
-from flask import abort, flash, redirect, render_template
+from flask import flash, redirect, render_template
 
 from . import app, db
 from .forms import URL_mapForm
@@ -32,7 +30,5 @@ def index_view():
 
 @app.route('/<short_link>')
 def redirect_short_link(short_link):
-    link_map = URL_map.query.filter_by(short=short_link).first()
-    if link_map:
-        return redirect(link_map.original)
-    abort(HTTPStatus.NOT_FOUND)
+    link_map = URL_map.query.filter_by(short=short_link).first_or_404()
+    return redirect(link_map.original)
