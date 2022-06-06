@@ -1,4 +1,5 @@
 import re
+from http import HTTPStatus
 
 from .error_handlers import InvalidAPIUsage
 from .models import URL_map
@@ -46,5 +47,5 @@ def validate_short_link(data):
 def check_availability_short_link(link):
     url_map = URL_map.query.filter_by(short=link).first()
     if url_map is None:
-        raise InvalidAPIUsage('Указанный id не найден', 404)
+        raise InvalidAPIUsage('Указанный id не найден', HTTPStatus.NOT_FOUND)
     return url_map

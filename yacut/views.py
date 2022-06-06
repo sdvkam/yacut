@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from flask import abort, flash, redirect, render_template
 
 from . import app, db
@@ -33,4 +35,4 @@ def redirect_short_link(short_link):
     link_map = URL_map.query.filter_by(short=short_link).first()
     if link_map:
         return redirect(link_map.original)
-    abort(404)
+    abort(HTTPStatus.NOT_FOUND)
