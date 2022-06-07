@@ -8,7 +8,7 @@
 
 ### 2. Как запустить проект:
 
-Клонировать репозиторий и перейти в него в командной строке:
+   Клонировать репозиторий и перейти в него в командной строке:
 ```
 git clone https://github.com/sdvkam/yacut.git
 ```
@@ -49,3 +49,5 @@ flask run
 - SQLAlchemy (через flask-sqlalchemy)
 - SQLite
 - Bootstrap
+
+Language: ![https://img.shields.io/badge/Python-3.7.8-blue](https://img.shields.io/badge/Python-3.7.8-blue)
